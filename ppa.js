@@ -8,15 +8,22 @@ client.on("ready",() => {
 
 var prefix = "!";
 var msgContents;
-var swears = ["fuck", "shit", "dammit", "damn", "bitch", "ech"];
-var theList = [];
+var playerList = [];
+var playerMoney = [];
 client.on('message', msg => {
   if (msg.content.startsWith(prefix)){
    switch(msgContents){
      case "!ping":
        msg.channel.send("Pong")
      break;
-  
+     case "!enter":       
+       if (playerList[msg.author.username] != true){
+       playerMoney = [msg.author.username] = 0.0;
+       }
+       playerList[msg.author.username] = true;
+       msg.channel.send(`You have joined! Balance ${playerMoney[msg.author.username}`)
+     break;
+     //case "!
        
        
        
