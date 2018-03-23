@@ -6,7 +6,7 @@ client.on("ready",() => {
   console.log("Im ready dog");
 });
 
-var prefix = "~";
+//var prefix = "~";
 var msgContents;
 var swears = ["fuck", "shit", "dammit", "damn", "bitch", "ech"];
 
@@ -20,7 +20,8 @@ client.on('message', msg => {
 
   if (testList(swears)) {
     msg.channel.send(ChristianServer.toString()+' YOU HECKIN SWORE '+ ChristianServer.toString());
-  }else if(msgContents.toLowerCase().includes("heresy")){
+  }
+  if(msgContents.toLowerCase().includes("heresy")){
     msg.channel.send('Did somebody say heresy? '+ Heresy.toString());
 
   }
