@@ -9,7 +9,7 @@ client.on("ready",() => {
 var prefix = "~";
 var msgContents;
 var swears = ["fuck", "shit", "dammit", "damn", "bitch", "ech"];
-
+var theList = [];
 client.on('message', msg => {
   const Heresy = msg.guild.emojis.find("name", "Heresy");
   const ChristianServer = msg.guild.emojis.find("name", "ChristianServer");
@@ -25,13 +25,33 @@ client.on('message', msg => {
     msg.channel.send('Did somebody say heresy? '+ Heresy.toString());
   }
 // Prefix based stuff
-  if (msg.contents.startsWith(prefix)){
+  if (msg.content.startsWith(prefix)){
     switch(msgContents){
       case "~test":
-      msg.channel.send("It worked!")
+        msg.channel.send("It worked!")
       break;
+      case "~arraysstartat1":
+        msg.channel.send("Of course! Why wouldn't they?")
+      break;
+      //The List
+      case "~addmetothelist":
+        theList[msg.author.username] = true;
+        msg.channel.send("Confirmed");
+      break;
+      case "~amionthelist":
+        if (theList[msg.author.username]){
+          msg.channel.send("Indeed");
+        }else{
+          msg.channel.send("Nope");
+        }
+      break;
+      case "~removemefromthelist":
+        theList[msg.author.username] = false;
+        msg.channel.send("Confirmed");
+      break;
+      //End The List
       default:
-      msg.channel.send("I don't understand");
+        msg.channel.send("I don't understand");
     }
   }
 
