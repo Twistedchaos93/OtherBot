@@ -1,6 +1,17 @@
+const http = require('http');
+const express = require('express');
+const ppa = express();
+ppa.get("/", (request, response) => {
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+ppa.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const settings = require('./settings.json')
 
 client.on("ready",() => {
   console.log("Im ready dog");
@@ -56,8 +67,7 @@ client.on('message', msg => {
   }
 
 });
-
-client.login(settings.token);
+client.login(process.env.TOKEN);
 
 function testList(array){
   for(var i = 0; i<array.length; i++){
