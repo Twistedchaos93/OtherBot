@@ -51,7 +51,7 @@ client.on('message', msg => {
       break;
       //Show full list
       case "~showlist":
-        msg.channel.send('In-Game Players(${theList.length})');
+        msg.channel.send(`In-Game Players(${theList.length})`);
         for (i=0; i<theList.length; i++){
          msg.channel.send(theList[i]); 
         }
