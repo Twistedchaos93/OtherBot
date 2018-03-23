@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const settings = require('./settings.json')
 
 client.on("ready",() => {
-  console.log("Im ready dog");
+  console.log("I'm ready dog");
 });
 
 var prefix = "~";
@@ -48,6 +48,13 @@ client.on('message', msg => {
       case "~removemefromthelist":
         theList[msg.author.username] = false;
         msg.channel.send("Confirmed");
+      break;
+      //Show full list
+      case "~showlist":
+        msg.channel.send('In-Game Players(${theList.length})');
+        for (i=0; i<theList.length; i++){
+         msg.channel.send(theList[i]); 
+        }
       break;
       //End The List
       default:
