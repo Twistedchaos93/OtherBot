@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const settings = require('./settings.json')
 
 client.on("ready",() => {
-  console.log("I'm ready dog");
+  console.log("I'm ready bro");
 });
 
 var prefix = "~";
