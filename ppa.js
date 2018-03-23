@@ -35,14 +35,14 @@ client.on('message', msg => {
   if(msgContents.toLowerCase().includes("heresy")){
     msg.channel.send('Did somebody say heresy? '+ Heresy.toString());
   }
+  if(msgContents.toLowerCase() === "arrays start at one" || msgContents.toLowerCase() === "arrays start at 1"){
+    msg.channel.send("Of course! Why wouldn't they?");
+  }
 // Prefix based stuff
   if (msg.content.startsWith(prefix)){
     switch(msgContents){
       case "~test":
-        msg.channel.send("It worked!")
-      break;
-      case "~arraysstartat1":
-        msg.channel.send("Of course! Why wouldn't they?")
+        msg.channel.send("It worked!");
       break;
       //The List
       case "~addmetothelist":
