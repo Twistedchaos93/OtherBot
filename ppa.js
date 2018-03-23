@@ -41,8 +41,17 @@ client.on('message', msg => {
      case "!bet1":
        var die1 = random(1,7);
        var die2 = random(1,7);
-       msg.channel.send(`Die 1 result: ${die1}\nDie 2 result: ${die2}`\n) 
-      
+       var dieTotal = die1 + die2;
+       msg.channel.send(`Die 1 result: ${die1}
+Die 2 result: ${die2}
+Total: ${dieTotal}`) 
+      if (dieTotal == 7){
+        playerMoney[msg.author.username] ++;
+      } else if (dieTotal == 12){
+        playerMoney[msg.author.username] += 2;
+      } else {
+        playerMoney[msg.author.username] --; 
+      }
        
        
        //not done yet lol
