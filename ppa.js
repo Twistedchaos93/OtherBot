@@ -101,6 +101,9 @@ client.on('message', msg => {
      case "!inflation"
       groupAdd(10);
      break;
+     case "!eatmyass"
+      msg.channel.send(`Cool.`)
+     break;
        
        
        //not done yet lol
