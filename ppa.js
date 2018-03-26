@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const settings = require('./settings.json')
 
 client.on("ready",() => {
-  console.log("I'm ready bro");
+  console.log("FinnBot operational");
 });
 
 var prefix = "!";
@@ -43,6 +43,13 @@ Total: ${dieTotal}`)
     msg.channel.send(`Player not found`)
     }
 }
+//adding money to the group
+function groupAdd(amount){
+  for (i=0;i<playerlist.length;i++){
+    playerMoney[i] += amount;
+  }//end of for loop
+}//end of function
+
 //parser
 client.on('message', msg => {
   if (msg.content.startsWith(prefix)){
@@ -58,7 +65,7 @@ client.on('message', msg => {
        msg.channel.send(`You have joined! Balance ${playerMoney[msg.author.username]}`)
      break;
      case "!reset":
-       if (msg.author.username == "FinnRules"){
+       if (msg.author.username == "FinnRules" || msg.author.username == "Chimbitz Krambo"){
         playerList = [];
         playerMoney = [];
         msg.channel.send(`All players removed by ${msg.author.username}`)
@@ -89,6 +96,9 @@ client.on('message', msg => {
      break;
      case "!balance":
       msg.channel.send(`Balance for ${msg.author.username} is ${playerMoney[msg.author.username]}`)
+     break;
+     case "!inflation"
+      groupAdd(10);
      break;
        
        
