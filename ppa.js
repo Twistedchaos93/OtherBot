@@ -52,6 +52,7 @@ function groupAdd(amount){
 
 //parser
 client.on('message', msg => {
+  msgContents = msg.content;
   if (msg.content.startsWith(prefix)){
    switch(msgContents){
      case "!ping":
