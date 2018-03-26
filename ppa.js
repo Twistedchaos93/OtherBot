@@ -71,7 +71,7 @@ client.on('message', msg => {
         playerMoney = [];
         msg.channel.send(`All players removed by ${msg.author.username}`)
        } else {
-        msg.channel.send(`${msg.author.send} is not recognised as a user who reset privs`)
+        msg.channel.send(`${msg.author.send} is not recognised as a user who reset can privs`)
        }
      break;
      case "!bet1":
